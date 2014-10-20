@@ -4,6 +4,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     
+    // Oppgave 3a
     func callback(weather: Weather?) {
         NSOperationQueue.mainQueue().addOperationWithBlock {
             if let weatherToday = weather {
