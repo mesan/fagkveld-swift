@@ -14,6 +14,10 @@ class Weather {
     }
     
     func description() -> String {
-        return "weatherType: \(weatherType), date: \(date), tempMin: \(tempMin), tempMax: \(tempMax)"
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return "\(dateFormatter.stringFromDate(date!)) - \(weatherType!) - \(tempMax!) C / \(tempMin!) C"
+
     }
 }
