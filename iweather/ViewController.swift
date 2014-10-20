@@ -1,16 +1,18 @@
-//
-//  ViewController.swift
-//  iweather
-//
-//  Created by Anders Ullnæss on 20/10/14.
-//  Copyright (c) 2014 Mesan. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
+    
+    func callback(weather: Weather?) {
+        NSOperationQueue.mainQueue().addOperationWithBlock {
+            if let weatherToday = weather {
+                var dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                self.nameLabel.text = "\(dateFormatter.stringFromDate(weatherToday.date!)) - \(weatherToday.weatherType!) - \(weatherToday.tempMax!) C / \(weatherToday.tempMin!) C"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +22,13 @@ class ViewController: UIViewController {
         let name = "Taylor Swift"
         nameLabel.text = "Hello, \(name)!"
         
+        // Oppgave 2b
+        WeatherService.getWeather(callback)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
