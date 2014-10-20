@@ -13,7 +13,6 @@
 		9F17514B19F5710A0055DDD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F17514A19F5710A0055DDD3 /* Images.xcassets */; };
 		9F17514E19F5710A0055DDD3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F17514C19F5710A0055DDD3 /* LaunchScreen.xib */; };
 		9F17515A19F5710A0055DDD3 /* iweatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17515919F5710A0055DDD3 /* iweatherTests.swift */; };
-		9F17516419F575AC0055DDD3 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17516319F575AC0055DDD3 /* Weather.swift */; };
 		9F17516619F5775C0055DDD3 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F17516519F5775C0055DDD3 /* WeatherService.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		9F17515319F5710A0055DDD3 /* iweatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iweatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F17515819F5710A0055DDD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F17515919F5710A0055DDD3 /* iweatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iweatherTests.swift; sourceTree = "<group>"; };
-		9F17516319F575AC0055DDD3 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		9F17516519F5775C0055DDD3 /* WeatherService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +85,6 @@
 				9F17514A19F5710A0055DDD3 /* Images.xcassets */,
 				9F17514C19F5710A0055DDD3 /* LaunchScreen.xib */,
 				9F17514119F5710A0055DDD3 /* Supporting Files */,
-				9F17516319F575AC0055DDD3 /* Weather.swift */,
 				9F17516519F5775C0055DDD3 /* WeatherService.swift */,
 			);
 			path = iweather;
@@ -220,7 +217,6 @@
 			files = (
 				9F17516619F5775C0055DDD3 /* WeatherService.swift in Sources */,
 				9F17514619F5710A0055DDD3 /* ViewController.swift in Sources */,
-				9F17516419F575AC0055DDD3 /* Weather.swift in Sources */,
 				9F17514419F5710A0055DDD3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +413,7 @@
 				9F17515F19F5710A0055DDD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F17516019F5710A0055DDD3 /* Build configuration list for PBXNativeTarget "iweatherTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +422,7 @@
 				9F17516219F5710A0055DDD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

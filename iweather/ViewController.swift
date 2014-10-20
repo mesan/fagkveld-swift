@@ -4,13 +4,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     
-    func callback(weather: Weather?) {
+    // Oppgave 2c
+    func callback(/* Ditt objekt her */) {
+        // GUI bør/må oppdateres via main-tråden
         NSOperationQueue.mainQueue().addOperationWithBlock {
-            if let weatherToday = weather {
-                var dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"
-                self.nameLabel.text = "\(dateFormatter.stringFromDate(weatherToday.date!)) - \(weatherToday.weatherType!) - \(weatherToday.tempMax!) C / \(weatherToday.tempMin!) C"
-            }
+
         }
     }
     
@@ -22,8 +20,8 @@ class ViewController: UIViewController {
         let name = "Taylor Swift"
         nameLabel.text = "Hello, \(name)!"
         
-        // Oppgave 2b
-        WeatherService.getWeather(callback)
+        // Oppgave 2b - kall på værtjenesten
+        
     }
 
     override func didReceiveMemoryWarning() {
