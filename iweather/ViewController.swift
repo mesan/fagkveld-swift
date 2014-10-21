@@ -3,7 +3,10 @@ import UIKit
 // Oppgave 3b)
 class ViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var weatherTable: UITableView!
+    @IBOutlet weak var searchButton: UIButton!
+    
     var weatherArray: [Weather] = []
     
     // Oppgave 3b
@@ -19,8 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // Oppgave 2b
-        WeatherService.getWeather(callback)
+        // Oppgave 2b (endret i 6)
+        WeatherService.getWeather("Oslo", callback: callback)
         
         // Oppgave 3b) 3) sett datasource
         self.weatherTable.dataSource = self
@@ -61,5 +64,15 @@ class ViewController: UIViewController, UITableViewDataSource {
             detailViewController.weather = weatherArray[indexPath!.row]
         }
     }
+    
+    // Oppgave 6
+    @IBAction func performSearch(sender: AnyObject) {
+        weatherArray = []
+        self.weatherTable.reloadData()
+        WeatherService.getWeather(searchField.text, callback: callback)
+        self.searchField.resignFirstResponder()
+        self.searchField.text = ""
+    }
+
 }
 

@@ -12,17 +12,24 @@ class WeatherService {
         return imageData
     }
     
-    class func getWeather(callback: (([Weather]) -> Void)!) {
+    // oppgave 6
+    class func getWeather(location: String, callback: (([Weather]) -> Void)!) {
         
         // Oppgave 3a
-        let url: String = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Oslo&mode=json&units=metric&cnt=7"
+        let url: String = "http://api.openweathermap.org/data/2.5/forecast/daily?q=\(location)&mode=json&units=metric&cnt=7"
         var request : NSMutableURLRequest = NSMutableURLRequest()
-        request.URL = NSURL(string: url)
+        // Bonusoppgave
+        let encodedUrl = url.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())!
+        request.URL = NSURL(string: encodedUrl)
         request.HTTPMethod = "GET"
         
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue(), completionHandler:{ (response:NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             var error: AutoreleasingUnsafeMutablePointer<NSError?> = nil
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
+            
+            if error != nil {
+                println(error)
+            }
             
             var weatherType: String?
             var weatherArray = self.getWeatherArray(jsonResult)
