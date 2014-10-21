@@ -3,10 +3,19 @@ import Foundation
 // Oppgave 2b
 class WeatherService {
     
+    // Oppgave 5
+    class func getWeatherIcon(iconName: String) -> NSData {
+        let url: NSURL =  NSURL.URLWithString("http://openweathermap.org/img/w/\(iconName).png")
+        var err: NSError? = nil
+        var imageData :NSData = NSData.dataWithContentsOfURL(url,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
+        
+        return imageData
+    }
+    
     class func getWeather(callback: (([Weather]) -> Void)!) {
         
         // Oppgave 3a
-        var url : String = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Oslo&mode=json&units=metric&cnt=7"
+        let url: String = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Oslo&mode=json&units=metric&cnt=7"
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -56,7 +65,7 @@ class WeatherService {
         if let result = jsonResult {
             if let list = result["list"] as? NSArray {
                 for item in list {
-                    var weatherTuple: (date: NSDate?, tempMin: Double?, tempMax: Double?, weatherType: String?)
+                    var weatherTuple: (date: NSDate?, tempMin: Double?, tempMax: Double?, weatherType: String?, iconName: String?)
                     
                     if let weatherItem = item as? NSDictionary {
                         if let unixDate = weatherItem["dt"] as? Double {
@@ -69,11 +78,12 @@ class WeatherService {
                         if let weatherList = weatherItem["weather"] as? NSArray {
                             if let weather = weatherList[0] as? NSDictionary {
                                 weatherTuple.weatherType = weather["main"] as? String
+                                weatherTuple.iconName = weather["icon"] as? String
                             }
                         }
                     }
                     
-                    weatherArray.append(Weather(weatherType: weatherTuple.weatherType, date: weatherTuple.date, tempMin: weatherTuple.tempMin, tempMax: weatherTuple.tempMax))
+                    weatherArray.append(Weather(weatherType: weatherTuple.weatherType, date: weatherTuple.date, tempMin: weatherTuple.tempMin, tempMax: weatherTuple.tempMax, iconName: weatherTuple.iconName))
                 }
             }
 

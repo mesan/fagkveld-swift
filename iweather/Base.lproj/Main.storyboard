@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weekly weather-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iweather" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Weekly weather" id="BYZ-38-t0r" customClass="ViewController" customModule="iweather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,7 +34,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ruY-QX-1Gr" kind="show" id="W83-29-VYd"/>
+                                            <segue destination="ruY-QX-1Gr" kind="show" identifier="detailSegue" id="W83-29-VYd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -45,7 +45,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="azy-b6-BdS"/>
+                    <navigationItem key="navigationItem" title="Weekly Weather" id="azy-b6-BdS">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="jWx-Gq-z77"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="weatherTable" destination="wYq-yA-dba" id="nDH-sv-bvi"/>
                     </connections>
@@ -54,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="951.5" y="135.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Weather-->
         <scene sceneID="ujS-Ci-lnQ">
             <objects>
-                <viewController id="ruY-QX-1Gr" sceneMemberID="viewController">
+                <viewController title="Weather" id="ruY-QX-1Gr" customClass="DetailViewController" customModule="iweather" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jEu-cr-gnk"/>
                         <viewControllerLayoutGuide type="bottom" id="evL-gu-xQS"/>
@@ -65,8 +67,30 @@
                     <view key="view" contentMode="scaleToFill" id="RWC-HW-RpL">
                         <rect key="frame" x="0.0" y="64" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgy-22-jCZ">
+                                <rect key="frame" x="16" y="80" width="50" height="50"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSQ-LA-Ynt">
+                                <rect key="frame" x="80" y="87" width="279" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q9-4k-0vW">
+                                <rect key="frame" x="16" y="138" width="343" height="98"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="OSQ-LA-Ynt" id="TdT-Ux-aFv"/>
+                        <outlet property="temperatureLabel" destination="2q9-4k-0vW" id="c2z-Pl-JOb"/>
+                        <outlet property="weatherIcon" destination="Cgy-22-jCZ" id="djF-3b-7os"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npM-7Z-WDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
