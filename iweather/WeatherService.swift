@@ -3,9 +3,9 @@ import Foundation
 // Oppgave 2b
 class WeatherService {
     
-    class func getWeather(callback: ((Weather?) -> Void)!) {
+    class func getWeather(callback: (([Weather]?) -> Void)!) {
         
-        var url : String = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Oslo&mode=json&units=metric&cnt=1"
+        var url : String = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Stavanger&mode=json&units=metric&cnt=7"
         var request : NSMutableURLRequest = NSMutableURLRequest()
         request.URL = NSURL(string: url)
         request.HTTPMethod = "GET"
@@ -15,9 +15,9 @@ class WeatherService {
             let jsonResult: NSDictionary! = NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions.MutableContainers, error: error) as? NSDictionary
             
             var weatherType: String?
-            var weatherTuple = self.getWeatherTuple(jsonResult)
-            var weatherToday = Weather(weatherType: weatherTuple.weatherType, date: weatherTuple.date, tempMin: weatherTuple.tempMin, tempMax: weatherTuple.tempMax)
-            callback(weatherToday)
+            var weatherArr = self.getWeatherArray(jsonResult)
+            
+            callback(weatherArr)
         })
     }
     
