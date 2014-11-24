@@ -33,32 +33,32 @@ class Transition : NSObject, UIViewControllerAnimatedTransitioning{
         let viewController = navigationController.topViewController as ViewController
         
         let menuView = menuViewController.view
-        let bottomView = navigationController.view
-        container.addSubview(bottomView)
+        let mainView = navigationController.view
+        container.addSubview(mainView)
         container.addSubview(menuView)
         
         let duration = self.transitionDuration(transitionContext)
         
-        // prepare menu items to slide in
+        //set the stage for first animation.
         if (self.presenting){
-            //set the stage for first animation.
+            menuView.alpha=0
+
         }
         
         
         UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: nil, animations: {
             if (self.presenting){
                 //do anim...oppgave7
-                println("presenting")
+                menuView.alpha=1
             }
             else {
                 //do anim...oppgave7
-                println("not presenting")
+                menuView.alpha=0
             }
             
             }, completion: { finished in
                 // tell our transitionContext object that we've finished animating
                 transitionContext.completeTransition(true)
-                
                 // bug: we have to manually add our 'to view' back http://openradar.appspot.com/radar?id=5320103646199808
                 UIApplication.sharedApplication().keyWindow?.addSubview(screens.to.view)
         })
