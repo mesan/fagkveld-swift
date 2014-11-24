@@ -5,9 +5,9 @@ class WeatherService {
     
     // Oppgave 5
     class func getWeatherIcon(iconName: String) -> NSData {
-        let url: NSURL =  NSURL.URLWithString("http://openweathermap.org/img/w/\(iconName).png")
+        let url: NSURL =  NSURL(string: "http://openweathermap.org/img/w/\(iconName).png")!
         var err: NSError? = nil
-        var imageData :NSData = NSData.dataWithContentsOfURL(url,options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)
+        var imageData :NSData = NSData(contentsOfURL: url, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &err)!
         
         return imageData
     }
