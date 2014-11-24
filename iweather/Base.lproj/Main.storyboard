@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nlW-rK-XKr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nlW-rK-XKr">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -34,7 +34,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ruY-QX-1Gr" kind="show" identifier="detailSegue" id="W83-29-VYd"/>
+                                            <segue destination="ruY-QX-1Gr" kind="presentation" identifier="detailSegue" modalPresentationStyle="overFullScreen" id="W83-29-VYd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -99,16 +99,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-h3-DNb">
+                                <rect key="frame" x="314" y="20" width="45" height="45"/>
+                                <state key="normal" title="X">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J3a-Yn-1wb" kind="unwind" unwindAction="unwindToMainViewController:" id="YFt-Uy-YDO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnClose" destination="hHJ-h3-DNb" id="69L-b7-b5J"/>
                         <outlet property="dateLabel" destination="OSQ-LA-Ynt" id="TdT-Ux-aFv"/>
                         <outlet property="temperatureLabel" destination="2q9-4k-0vW" id="c2z-Pl-JOb"/>
                         <outlet property="weatherIcon" destination="Cgy-22-jCZ" id="djF-3b-7os"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npM-7Z-WDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="J3a-Yn-1wb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1537.5" y="142.5"/>
         </scene>

@@ -73,6 +73,12 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.searchField.resignFirstResponder()
         self.searchField.text = ""
     }
+    
+    //Oppgave 7
+    @IBAction func unwindToMainViewController (sender: UIStoryboardSegue){
+        // bug? exit segue doesn't dismiss so we do it manually...
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 }
 
