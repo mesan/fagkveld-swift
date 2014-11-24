@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         // Oppgave 3b) 4) fylle ut tekst i celle
         let weather = weatherArray[indexPath.row]
-        cell.textLabel?.text = weather.description()
+        cell.textLabel.text = weather.description()
         
         return cell
     }
