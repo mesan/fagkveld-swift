@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             println("\(dateFormatter.stringFromDate(weatherToday.date!)) - \(weatherToday.weatherType!) - \(weatherToday.tempMax!) C / \(weatherToday.tempMin!) C")
             
             
-            cell.textLabel?.text = "\(dateFormatter.stringFromDate(weatherToday.date!)) - \(weatherToday.weatherType!) - \(weatherToday.tempMax!) C / \(weatherToday.tempMin!) C";
+            cell.textLabel.text = "\(dateFormatter.stringFromDate(weatherToday.date!)) - \(weatherToday.weatherType!) - \(weatherToday.tempMax!) C / \(weatherToday.tempMin!) C";
         }
         // Oppgave 3b) 4) fylle ut tekst i celle
         
