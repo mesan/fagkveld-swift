@@ -34,7 +34,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ruY-QX-1Gr" kind="show" identifier="detailSegue" id="W83-29-VYd"/>
+                                            <segue destination="ruY-QX-1Gr" kind="presentation" identifier="detailSegue" modalPresentationStyle="overFullScreen" id="W83-29-VYd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -69,7 +69,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgy-22-jCZ">
-                                <rect key="frame" x="16" y="80" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSQ-LA-Ynt">
                                 <rect key="frame" x="80" y="87" width="279" height="36"/>
@@ -83,16 +83,35 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1fH-Sv-Wz4">
+                                <rect key="frame" x="329" y="28" width="40" height="40"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="X">
+                                            <attributes>
+                                                <font key="NSFont" size="30" name="GillSans-Bold"/>
+                                                <font key="NSOriginalFont" size="30" name="GillSans-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="Gr7-ld-Og2" kind="unwind" unwindAction="unwindToMainViewController:" id="7ls-rX-Mek"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="btnClose" destination="1fH-Sv-Wz4" id="KUq-Ai-3Kb"/>
                         <outlet property="dateLabel" destination="OSQ-LA-Ynt" id="TdT-Ux-aFv"/>
                         <outlet property="temperatureLabel" destination="2q9-4k-0vW" id="c2z-Pl-JOb"/>
                         <outlet property="weatherIcon" destination="Cgy-22-jCZ" id="djF-3b-7os"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="npM-7Z-WDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Gr7-ld-Og2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1537.5" y="142.5"/>
         </scene>
