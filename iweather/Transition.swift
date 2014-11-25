@@ -72,7 +72,7 @@ class Transition : NSObject, UIViewControllerAnimatedTransitioning{
         
     }
     func onStage(controller:DetailViewController){
-        controller.view.alpha=1
+        controller.view.alpha=0.75
         controller.weatherIcon.transform=CGAffineTransformIdentity
         controller.dateLabel.transform=CGAffineTransformIdentity
         controller.temperatureLabel.transform=CGAffineTransformIdentity

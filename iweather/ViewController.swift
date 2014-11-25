@@ -58,6 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        println(segue.identifier)
         if segue.identifier == "detailSegue" {
             let indexPath = self.weatherTable.indexPathForSelectedRow()
             let detailViewController = segue.destinationViewController as DetailViewController
